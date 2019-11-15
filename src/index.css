@@ -37,3 +37,22 @@ main {
 header h1 {
   text-align: center;
 }
+
+.link_conatiner{
+  display:flex;
+  justify-content: center;
+}
+
+.link_characters{
+  color:white;
+  text-decoration:none;
+}
+
+.card_container{
+  margin:10px;
+  display: flex;
+  flex-wrap:wrap;
+  flex-direction: row;
+  justify-content: center;
+  color:white;
+}
