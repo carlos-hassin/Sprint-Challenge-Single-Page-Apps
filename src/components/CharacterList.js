@@ -1,16 +1,57 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import axios from "axios";
+
+import CharacterCard from "./CharacterCard";
+
+const HomeLink = styled.div`
+text-align:center;
+height:20px;
+width:150px;
+background-color:grey;
+border-radius: 50px;
+margin-top:10px;
+`;
+
 
 export default function CharacterList() {
-  // TODO: Add useState to track data from useEffect
+const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
+    axios.get("https://rickandmortyapi.com/api/character/")
+    .then(res =>{
+      console.log(res.data.results)
+      setCharacters(res.data.results)
+    })
+    .catch(error => {
+      console.log("Error, data not found", error)
+    })
   }, []);
+
 
   return (
     <section className="character-list">
-      <h2>TODO: `array.map()` over your state here!</h2>
+      <div className="link_conatiner">
+        <HomeLink>
+          <Link to="/" className="link_characters">Home</Link>
+        </HomeLink>
+      </div>
+      <div>
+        {characters.map(chars => {
+          return (
+            <div>
+              <CharacterCard
+              key={chars.id}
+              name={chars.name}
+              species={chars.species}
+              gender={chars.gender}
+              origin={chars.origin.name}
+              status={chars.status}/>
+            </div>
+          )
+        })}
+      </div>
     </section>
   );
 }
