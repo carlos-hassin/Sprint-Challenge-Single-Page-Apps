@@ -7,7 +7,6 @@ height:200px;
 width: 200px;
 background-color:grey;
 border-radius: 50px;
-
 `;
 
 const CharacterCard = props => {

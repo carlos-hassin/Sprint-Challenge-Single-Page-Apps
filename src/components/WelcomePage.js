@@ -18,9 +18,10 @@ export default function WelcomePage() {
         <h1>Welcome to the ultimate fan site!</h1>
           <div className="link_conatiner">
             <CharacterLink>
-              <Link to="/characters" className="link_characters"> View Characters</Link>
-            </CharacterLink>          
-          </div>
+              <Link to="/characters" className="link_characters"> View all characters </Link>
+            </CharacterLink>   
+              <Link to="/searchforms" className="link_search">Search Characters</Link>
+          </div>      
       </header>
     </section>
   );

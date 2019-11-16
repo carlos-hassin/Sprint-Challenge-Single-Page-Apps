@@ -4,7 +4,6 @@ import styled from "styled-components";
 import axios from "axios";
 
 import CharacterCard from "./CharacterCard";
-import SearchForm from "./SearchForm"
 
 const HomeLink = styled.div`
 text-align:center;
@@ -38,7 +37,6 @@ const [characters, setCharacters] = useState([]);
           <Link to="/" className="link_characters">Home</Link>
         </HomeLink>
       </div>
-      <SearchForm/>
       <div>
         {characters.map(chars => {
           return (
